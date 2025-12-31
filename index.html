@@ -195,11 +195,11 @@ input{
     <audio id="song5" src="song5.mp3"></audio>
 
     <div class="music-panel">
-        <button onclick="playSong('song1')">Your fav ♡</button>
-        <button onclick="playSong('song2')">Another one ♫</button>
-        <button onclick="playSong('song3')">This too 🎶</button>
-        <button onclick="playSong('song4')">Your only Favourite (ME) → 🎤</button>
-        <button onclick="playSong('song5')">Another ME ♡</button>
+        <button onclick="playSong('song1', this)">Your fav ♡</button>
+        <button onclick="playSong('song2', this)">Another one ♫</button>
+        <button onclick="playSong('song3', this)">This too 🎶</button>
+        <button onclick="playSong('song4', this)">Your only Favourite (ME) → 🎤</button>
+        <button onclick="playSong('song5', this)">Another ME ♡</button>
     </div>
 
 
@@ -419,12 +419,25 @@ setInterval(createHeart,450);
 
     };
 
-    function playSong(id) {
-        // stop all songs
-        Object.values(songs).forEach(song => {
-            song.pause();
-            song.currentTime = 0;
-        });
+    function playSong(id, btn) {
+    // stop all songs
+    Object.values(songs).forEach(song => {
+        song.pause();
+        song.currentTime = 0;
+    });
+
+    // remove highlight from all buttons
+    document
+        .querySelectorAll('.music-panel button')
+        .forEach(b => b.classList.remove('active'));
+
+    // play selected song
+    songs[id].play();
+
+    // highlight clicked button
+    btn.classList.add('active');
+}
+
 
         // remove highlight from all buttons
         document.querySelectorAll('.music-panel button')
