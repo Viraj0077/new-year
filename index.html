@@ -192,12 +192,14 @@ input{
     <audio id="song2" src="song2.mp3"></audio>
     <audio id="song3" src="song3.mp3"></audio>
     <audio id="song4" src="mysong.mp3"></audio>
+    <audio id="song5" src="song5.mp3"></audio>
 
     <div class="music-panel">
         <button onclick="playSong('song1')">Your fav ♡</button>
         <button onclick="playSong('song2')">Another one ♫</button>
         <button onclick="playSong('song3')">This too 🎶</button>
         <button onclick="playSong('song4')">Your only Favourite (ME) → 🎤</button>
+        <button onclick="playSong('song5')">Another ME ♡</button>
     </div>
 
 
@@ -413,6 +415,8 @@ setInterval(createHeart,450);
         song2: document.getElementById("song2"),
         song3: document.getElementById("song3"),
         song4: document.getElementById("song4")
+        song5: document.getElementById("song5"),
+
     };
 
     function playSong(id) {
